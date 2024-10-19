@@ -14,7 +14,7 @@ Specifically, the equations describe the dynamic changes of key components such 
 \frac{dAb_i}{dt} = a_N(t) p_N N_i + a_M(t) \frac{p_M M_{\text{on}_i} c_{i,k}}{c_{i,k} + c_0} - \gamma_{\text{neu}_i} \sum_{j}^{n} c_{j,i} Ag_j Ab_i - \gamma_{\text{Ab}} Ab_i
 \end{gather}
 ```
-The subscript $i$ represents the variant index. For detailed derivation of the equations and parameter meanings, please refer to the supplementary notes in the related publication [link to the paper](paper).
+The subscript $i$ represents the variant index. For detailed derivation of the equations and parameter meanings, please refer to the supplementary notes in the related publication [link to the paper](dynavac.cub.ynu.edu.cn).
 
 By fitting pseudovirus titration experimental data from various vaccination combinations, DynaVac can comprehensively and quantitatively characterize and predict the humoral immune response dynamics induced by SARS-CoV-2 vaccines during primary and booster immunizations. Our simulation results align with and expand upon the current understanding of immune imprinting. DynaVac provides a powerful quantitative tool for optimizing vaccine composition design and immunization strategies.
 
@@ -111,9 +111,6 @@ vaccine_type = [2 2 2 2 2]; % P: vaccination type (1: protein, 2: mRNA, 3: inact
 The antigen-antibody cross-neutralization matrix for the six SARS-CoV-2 variants, derived from pseudovirus titration experiments in this study, does not require user customization. 
 The legend for the variant-specific colors is found in `Personalized_vac/variant_legend.png`.
 ![legend](https://github.com/Jinkaichun/DynaVac/blob/main/Personalized_vac/variant_legend.png)
-## License
-
-This project is licensed under the XXX License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
