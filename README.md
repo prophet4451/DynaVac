@@ -114,7 +114,7 @@ The legend for the variant-specific colors is found in `Personalized_vac/variant
 
 ## Acknowledgments
 
-This work was supported by [funding sources].
+This work was supported by National Key R&D Program of China (2023YFC2307600 and 2021YFC23013000), R&D Program of Guangzhou National Laboratory, Grant No. GZNL2024A01001, Yunnan Fundamental Research Project (202401BF070001-020), Spring City Plan: The High-level Talent Promotion and Training Project of Kunming (2022SCP001).
 
 ## Contact
 
