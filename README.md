@@ -20,28 +20,32 @@ By fitting pseudovirus titration experimental data from various vaccination comb
 
 This repository includes the code to reproduce the main results of our related publication (Figures 3 to 6) and offers methods for simulating personalized vaccination strategies. For quick online interactive simulations, visit the [DynaVac Online Interface](https://dynavac.cub.ynu.edu.cn).
 
+## System Requirements
+- MATLAB R2021a or later (tested on Windows 11 and macOS 14)
+- No special hardware required
+
 ## Usage
 
 ### 1. Reproduction of Main Results
 
-#### 1.1 Figure 3: Model Validation in Mice
+#### 1.1 Model Validation in Mice
 
-To reproduce Figure 3 from the main text:
+To reproduce Figure 3a-c from the main text:
 
-- Run `Fig3/plot_fig3.m`.
+- Run `mice/plot_fig3.m`.
 - The files `yd_parameters.mat`, `cyl_parameters.mat`, and `mix_parameters.mat` contain the parameter sets that were obtained by parameterizing the model using data from this study, the Yisimayi et al. dataset, and a mixed dataset, respectively.
 - Run `plot_validation_this_study.m` or `plot_validation_Yisimayi.m` to visualize the model's performance on different datasets. Change the loaded parameter set at line 4 of the script as needed.
 
-#### 1.2 Figure 4: Model Validation in Humans
+#### 1.2 Model Validation in Humans
 
-To reproduce Figure 4:
+To reproduce Figure 3d-f:
 
-- Run `Fig4/plot_fig4.m`.
+- Run `human/plot_fig4.m`.
 - The parameter set trained on human clinical data is stored in `Fig4_validation_human/human_parameter.mat`.
 
-#### 1.3 Figure 5: Immune Imprinting vs. Antigenic Distance 
+#### 1.3 Immune Imprinting vs. Antigenic Distance 
 
-To reproduce Figure 5:
+To reproduce Figure 4:
 
 - First, run `Fig5/simu_fig5.m` to generate the required simulation data (`fig5_data.mat`).
 - Then, run `Fig5/plot_fig5.m` to reproduce Figure 5.
@@ -49,21 +53,21 @@ To reproduce Figure 5:
 
 The simulation in `Fig5/simu_fig5.m` fixes the primary and booster vaccination schedules and the primary vaccination dosage. It generates multiple simulation results by varying the antigenic distance and booster dosage. Users can modify fixed variables such as `vaccine_time` or `primary_dosage` to adjust the simulation scenario.
 
-#### 1.4 Figure 6a: Immune Imprinting vs. Primary Vaccination Dosage
+#### 1.4 Immune Imprinting vs. Primary Vaccination Dosage
 
-To reproduce Figure 6a:
+To reproduce Figure 5a:
 
-- First, run `Fig6a/simu_fig6a.m` to generate the required simulation data (`fig6a_data.mat`).
-- Then, run `Fig6a/plot_fig6a.m` to reproduce Figure 6a.
+- First, run `Fig6a/simu_fig6a.m` to generate the required simulation data (`fig6a_data.mat`), simulation completes within 2–10 minutes on a standard desktop.
+- Then, run `Fig6a/plot_fig6a.m` to reproduce Figure 5a.
 
 The simulation in `Fig6a/simu_fig6a.m` fixes the primary and booster vaccination schedules and the booster vaccination dosage. It generates multiple simulation results by varying the antigenic distance and primary vaccination dosage. Users can modify fixed variables such as `vaccine_time` or `booster_dosage` to adjust the simulation scenario.
 
-#### 1.5 Figure 6b: Immune Imprinting vs. Primary-Booster Interval
+#### 1.5 Immune Imprinting vs. Primary-Booster Interval
 
-To reproduce Figure 6b:
+To reproduce Figure 5b:
 
-- First, run `Fig6b/simu_fig6b.m` to generate the required simulation data (`fig6b_data.mat`).
-- Then, run `Fig6b/plot_fig6b.m` to reproduce Figure 6b.
+- First, run `Fig6b/simu_fig6b.m` to generate the required simulation data (`fig6b_data.mat`), simulation completes within 2–10 minutes on a standard desktop.
+- Then, run `Fig6b/plot_fig6b.m` to reproduce Figure 5b.
 
 The simulation in `Fig6b/simu_fig6b.m` fixes the primary and booster vaccination dosages. It generates multiple simulation results by varying the antigenic distance and the interval between primary and booster vaccinations. Users can modify fixed variables such as `vaccine_amount` to adjust the simulation scenario.
 
@@ -111,6 +115,12 @@ vaccine_type = [2 2 2 2 2]; % P: vaccination type (1: protein, 2: mRNA, 3: inact
 The antigen-antibody cross-neutralization matrix for the six SARS-CoV-2 variants, derived from pseudovirus titration experiments in this study, does not require user customization. 
 The legend for the variant-specific colors is found in `Personalized_vac/variant_legend.png`.
 ![legend](https://github.com/Jinkaichun/DynaVac/blob/main/Personalized_vac/variant_legend.png)
+
+## License
+This software is released under the MIT License.
+
+## Manuscript Reference
+Detailed model description and pseudocode are provided in the *Supplementary Information* section of the associated manuscript.
 
 ## Acknowledgments
 
