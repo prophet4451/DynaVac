@@ -1,4 +1,4 @@
-function [t,Rt,Agt,Abt,Ft,M_offt,M_ont]=simIPD(vaccine_varient,vaccine_time,vaccine_type,vaccine_amount,X,self_neu,parameter_set)
+function [t,Rt,Agt,Abt,Ft,M_offt,M_ont]=simIPD_last(vaccine_varient,vaccine_time,vaccine_type,vaccine_amount,X,self_neu,parameter_set,gap_sample)
 %------parameters setting-------
 % direct estimation
 
@@ -12,9 +12,9 @@ uni_varient=unique(vaccine_varient);
 uni_varient=uni_varient(uni_varient~=0);
 n_varient=length(uni_varient); %number of unique vaccine type
 
-if sum(vaccine_type==1)
-    self_neu(1)=parameter_set(20); %WT antibody self neutrlazing relative to BA.5
-end
+% if sum(vaccine_type==1)
+%     self_neu(1)=parameter_set(20); %WT antibody self neutrlazing relative to BA.5
+% end
 
 for vi=(1:n_varient)
     v=uni_varient(vi);
@@ -33,7 +33,7 @@ t=[];
 %------run simulation-------
 for dose=(1:n_vaccine)
     if dose==n_vaccine
-        tspan=[vaccine_time(dose),vaccine_time(dose)+14]; %the last dose
+        tspan=[vaccine_time(dose),vaccine_time(dose)+gap_sample]; %the last dose
     else
         tspan=[vaccine_time(dose),vaccine_time(dose+1)]; %simulation betwwen 2 dose
     end

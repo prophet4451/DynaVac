@@ -1,4 +1,4 @@
-function dydt=IPDfun(t,y,vaccine_varient,vaccine_time,vaccine_type,vaccine_amount,X,self_neu,parameter_set)
+function dydt=IPDfun_continue(t,y,vaccine_varient,vaccine_time,vaccine_type,vaccine_amount,X,self_neu,parameter_set,pre_varient)
 
 % ode of the model
 %------parameters setting-------
@@ -21,7 +21,7 @@ p_M=parameter_set(16); %memory antibody production rate
 k_B2M=parameter_set(17); % max GC B cell to memory B cell rate (germinal center)
 max_M=parameter_set(21);
 
-uni_varient=unique(vaccine_varient);
+uni_varient=unique([pre_varient,vaccine_varient]);
 uni_varient=uni_varient(uni_varient~=0);
 n_varient=length(uni_varient); %number of unique vaccine type
 
@@ -45,6 +45,8 @@ flux_F_decay=@(F) d_B*F; %GC B cell decay
 flux_B2M=@(M_off,M_on,F) k_B2M*F*(1-sum(M_off+M_on)/max_M); %GC B cell differentiate into memory cells
 % flux_M_prolif=@(Ag,M) s_M*((M.*X)./((M'*K)))*f(Ag,K);  %function
 flux_M_decay=@(M) d_M*M; %memory B cell decay
+
+
 flux_pre_mature=s_pre*Funs.a_pre(t,vaccine_time); %GC B cell pre mature
 
 dR= -flux_dR(y(1:n_varient));
@@ -53,18 +55,18 @@ dAg= flux_trans(y(1:n_varient))-flux_neutral_Ag(y(n_varient+1:2*n_varient),y(2*n
 
 dAb= Funs.a(t,vaccine_time,y(n_varient+1:2*n_varient))*flux_B_Ab(y(3*n_varient+1:4*n_varient))+Funs.a_M(t,vaccine_time,y(n_varient+1:2*n_varient))*Funs.p_M_attune(t,vaccine_time).*flux_M_Ab(y(5*n_varient+1:6*n_varient))-flux_dAb(y(2*n_varient+1:3*n_varient))-flux_neutral_Ab(y(n_varient+1:2*n_varient),y(2*n_varient+1:3*n_varient));
 
+
+% aaa=flux_pre_mature
+% bbb=Funs.a(t,vaccine_time,y(n_varient+1:2*n_varient))*flux_mature(y(n_varient+1:2*n_varient),y(3*n_varient+1:4*n_varient))
+% ccc=flux_F_decay(y(3*n_varient+1:4*n_varient))
+
 dF=flux_pre_mature+Funs.a(t,vaccine_time,y(n_varient+1:2*n_varient))*flux_mature(y(n_varient+1:2*n_varient),y(3*n_varient+1:4*n_varient))-flux_F_decay(y(3*n_varient+1:4*n_varient));
+
 
 dM_off=flux_B2M(y(4*n_varient+1:5*n_varient),y(5*n_varient+1:6*n_varient),y(3*n_varient+1:4*n_varient))-flux_M_decay(y(4*n_varient+1:5*n_varient));
 
 dM_on=Funs.a_M(t,vaccine_time,y(n_varient+1:2*n_varient))*Funs.flux_M_prolif(y(n_varient+1:2*n_varient),y(4*n_varient+1:5*n_varient),y(5*n_varient+1:6*n_varient))-flux_M_decay(y(5*n_varient+1:6*n_varient));
 
-% dR
-% dAg
-% dAb
-% dF
-% dM_off
-% dM_on
 
 dydt=[dR;dAg;dAb;dF;dM_off;dM_on];
 
