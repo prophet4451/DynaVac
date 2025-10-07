@@ -46,29 +46,29 @@ To reproduce Figure 3d-f:
 
 To reproduce Figure 4:
 
-- First, run `Fig5/simu_fig5.m` to generate the required simulation data (`fig5_data.mat`).
-- Then, run `Fig5/plot_fig5.m` to reproduce Figure 5.
-- To reproduce Figure 5f only, run `Fig5/plot_fig5f.m`.
+- First, run `Fig4/simu_fig4.m` to generate the required simulation data (`fig4_data.mat`).
+- Then, run `Fig4/plot_fig4.m` to reproduce Figure 4.
+- To reproduce Figure 4f only, run `Fig4/plot_fig4f.m`.
 
-The simulation in `Fig5/simu_fig5.m` fixes the primary and booster vaccination schedules and the primary vaccination dosage. It generates multiple simulation results by varying the antigenic distance and booster dosage. Users can modify fixed variables such as `vaccine_time` or `primary_dosage` to adjust the simulation scenario.
+The simulation in `Fig4/simu_fig4.m` fixes the primary and booster vaccination schedules and the primary vaccination dosage. It generates multiple simulation results by varying the antigenic distance and booster dosage. Users can modify fixed variables such as `vaccine_time` or `primary_dosage` to adjust the simulation scenario.
 
 #### 1.4 Immune Imprinting vs. Primary Vaccination Dosage
 
 To reproduce Figure 5a:
 
-- First, run `Fig6a/simu_fig6a.m` to generate the required simulation data (`fig6a_data.mat`), simulation completes within 2–10 minutes on a standard desktop.
-- Then, run `Fig6a/plot_fig6a.m` to reproduce Figure 5a.
+- First, run `Fig5a/simu_fig5a.m` to generate the required simulation data (`fig5a_data.mat`), simulation completes within 2–10 minutes on a standard desktop.
+- Then, run `Fig5a/plot_fig5a.m` to reproduce Figure 5a.
 
-The simulation in `Fig6a/simu_fig6a.m` fixes the primary and booster vaccination schedules and the booster vaccination dosage. It generates multiple simulation results by varying the antigenic distance and primary vaccination dosage. Users can modify fixed variables such as `vaccine_time` or `booster_dosage` to adjust the simulation scenario.
+The simulation in `Fig5a/simu_fig5a.m` fixes the primary and booster vaccination schedules and the booster vaccination dosage. It generates multiple simulation results by varying the antigenic distance and primary vaccination dosage. Users can modify fixed variables such as `vaccine_time` or `booster_dosage` to adjust the simulation scenario.
 
 #### 1.5 Immune Imprinting vs. Primary-Booster Interval
 
 To reproduce Figure 5b:
 
-- First, run `Fig6b/simu_fig6b.m` to generate the required simulation data (`fig6b_data.mat`), simulation completes within 2–10 minutes on a standard desktop.
-- Then, run `Fig6b/plot_fig6b.m` to reproduce Figure 5b.
+- First, run `Fig5b/simu_fig5b.m` to generate the required simulation data (`fig5b_data.mat`), simulation completes within 2–10 minutes on a standard desktop.
+- Then, run `Fig5b/plot_fig5b.m` to reproduce Figure 5b.
 
-The simulation in `Fig6b/simu_fig6b.m` fixes the primary and booster vaccination dosages. It generates multiple simulation results by varying the antigenic distance and the interval between primary and booster vaccinations. Users can modify fixed variables such as `vaccine_amount` to adjust the simulation scenario.
+The simulation in `Fig5b/simu_fig5b.m` fixes the primary and booster vaccination dosages. It generates multiple simulation results by varying the antigenic distance and the interval between primary and booster vaccinations. Users can modify fixed variables such as `vaccine_amount` to adjust the simulation scenario.
 
 
 ### 2. Personalized Vaccination Strategy Simulation
