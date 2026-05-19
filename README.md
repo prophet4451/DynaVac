@@ -14,7 +14,7 @@ Specifically, the equations describe the dynamic changes of key components such 
 \frac{dAb_i}{dt} = a_N(t) p_N N_i + a_M(t) \frac{p_M M_{\text{on}_i} c_{i,k}}{c_{i,k} + c_0} - \gamma_{\text{neu}_i} \sum_{j}^{n} c_{j,i} Ag_j Ab_i - \gamma_{\text{Ab}} Ab_i
 \end{gather}
 ```
-The subscript $i$ represents the variant index. For detailed derivation of the equations and parameter meanings, please refer to the supplementary notes in the related publication [link to the paper](dynavac.cub.ynu.edu.cn).
+The subscript $i$ represents the variant index. For detailed derivation of the equations and parameter meanings, please refer to the STAR Methods in the related publication [link to the paper](https://www.cell.com/cell-reports/fulltext/S2211-1247(26)00349-9).
 
 By fitting pseudovirus titration experimental data from various vaccination combinations, DynaVac can comprehensively and quantitatively characterize and predict the humoral immune response dynamics induced by SARS-CoV-2 vaccines during primary and booster immunizations. Our simulation results align with and expand upon the current understanding of immune imprinting. DynaVac provides a powerful quantitative tool for optimizing vaccine composition design and immunization strategies.
 
